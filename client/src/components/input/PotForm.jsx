@@ -1,16 +1,25 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './PotForm.css';
 
-const PotForm = ({ onSubmit, formData, setFormData }) => {
+const PotForm = () => {
+  const [formData, setFormData] = useState({ potName: '', totalPot: '', MaxnoofMemebers:'' });
+  const [allPotData, setAllPotData] = useState([]);
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSubmit(formData);
+    const newPotData = { ...formData };
+    setAllPotData([...allPotData, newPotData]);
+    setFormData({ potName: '', totalPot: '', MaxnoofMemebers: '' });
     console.log(formData);
   };
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
+
+  useEffect(() => {
+    console.log('AllPotData:', allPotData);
+  }, [allPotData]);
 
   return (
     <div className="left-column">
@@ -42,7 +51,7 @@ const PotForm = ({ onSubmit, formData, setFormData }) => {
           id="MaxnoofMemebers"
           name="MaxnoofMemebers"
           required
-          value={formData.entryFee}
+          value={formData.MaxnoofMemebers}
           onChange={handleChange}
         />
 
