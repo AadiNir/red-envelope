@@ -1,0 +1,43 @@
+/* PotForm.css */
+.left-column {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .left-column h1 {
+    font-size: 1.5rem;
+  }
+  
+  .left-column form {
+    margin-top: 20px;
+  }
+  
+  .left-column label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  .left-column input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+  
+  .left-column button {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
+  .left-column button:hover {
+    background-color: #0056b3;
+  }
+  

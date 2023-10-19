@@ -1,23 +1,26 @@
-import logo from './logo.svg';
+import React, { useState, useEffect } from 'react';
+import PotForm from './components/input/PotForm';
 import './App.css';
 
 function App() {
+  const [formData, setFormData] = useState({ potName: '', totalPot: '',  MaxnoofMemebers:'' });
+  const [allPotData, setAllPotData] = useState([]);
+ 
+
+
+  const handlePotSubmit = (data) => {
+    const newPotData = { ...data };
+    setAllPotData([...allPotData, newPotData]);
+    setFormData({ potName: '', totalPot: '', MaxnoofMemebers: '' });
+  };
+
+  useEffect(() => {
+    console.log('AllPotData:', allPotData);
+  }, [allPotData]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <PotForm onSubmit={handlePotSubmit} formData={formData} setFormData={setFormData} />
     </div>
   );
 }
